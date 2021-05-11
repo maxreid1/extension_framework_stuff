@@ -25,14 +25,36 @@
 import React, { useState } from 'react'
 import { ExtensionProvider } from '@looker/extension-sdk-react'
 import { hot } from 'react-hot-loader/root'
+import { ComponentsProvider, Grid, Box } from '@looker/components'
+
+
+
+// import EmbedDashboard from './components/EmbedDashboard'
+import Sidebar from './components/Sidebar'
+import styled from 'styled-components'
 
 
 export const App: React.FC<{}> = hot(() => {
 
-  return (
 
+  return (
     <ExtensionProvider>
-      <div><h1>Hello World!</h1></div>
+      <ComponentsProvider>
+        <PageLayout>
+          <Sidebar height="100%"/>
+        {/* <Box display="flex" height="100%"> */}
+          {/* <Box width="20%" height="100%"><Sidebar/></Box> */}
+          {/* <Box flex={1}></Box> */}
+        {/* </Box> */}
+          {/* </Grid> */}
+        </PageLayout>
+      </ComponentsProvider>
     </ExtensionProvider>
   )
 })
+
+const PageLayout = styled.div`
+  display: grid;
+  grid-template-columns: 192px auto;
+  height: 100%;
+`
