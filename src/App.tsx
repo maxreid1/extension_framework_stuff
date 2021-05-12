@@ -55,6 +55,6 @@ export const App: React.FC<{}> = hot(() => {
 
 const PageLayout = styled.div`
   display: grid;
-  grid-template-columns: 192px auto;
+  grid-auto-columns:  auto;
   height: 100%;
 `
